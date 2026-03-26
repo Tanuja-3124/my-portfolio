@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanuja | Cloud Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0f172a;
+color:white;
+overflow-x:hidden;
+}
+
+/* ===== Animated Gradient Background ===== */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background: linear-gradient(45deg, #f472b6, #ec4899, #d946ef, #f472b6);
+background-size:400% 400%;
+animation:gradientShift 18s ease infinite;
+z-index:-2;
+}
+
+@keyframes gradientShift{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* ===== NAV ===== */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:fixed;
+width:100%;
+background:rgba(15,23,42,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav h2{
+letter-spacing:2px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#38bdf8;
+}
+
+/* ===== HERO ===== */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:0 8%;
+}
+
+.hero-content{
+max-width:700px;
+animation:fadeInUp 1.5s ease forwards;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.typing{
+color:#38bdf8;
+border-right:3px solid #38bdf8;
+white-space:nowrap;
+overflow:hidden;
+width:0;
+animation:typing 4s steps(40,end) forwards, blink 1s infinite;
+}
+
+@keyframes typing{
+to{width:100%;}
+}
+
+@keyframes blink{
+50%{border-color:transparent;}
+}
+
+@keyframes fadeInUp{
+from{opacity:0; transform:translateY(50px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== SECTIONS ===== */
+.section{
+padding:120px 8%;
+opacity:0;
+transform:translateX(-80px);
+transition:all 1s ease;
+}
+
+.section.show{
+opacity:1;
+transform:translateX(0);
+}
+
+.section h2{
+margin-bottom:30px;
+font-size:32px;
+color:#38bdf8;
+}
+
+/* ===== GRID CARDS ===== */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+padding:25px;
+background:rgba(255,255,255,0.08);
+border-radius:15px;
+transition:0.4s;
+}
+
+.card:hover{
+background:white;
+color:#0f172a;
+transform:translateY(-10px);
+}
+
+/* ===== CONTACT FORM ===== */
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+max-width:500px;
+}
+
+input,textarea{
+padding:12px;
+border:none;
+border-radius:8px;
+}
+
+button{
+padding:12px;
+border:none;
+border-radius:8px;
+background:#38bdf8;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+button:hover{
+background:white;
+color:black;
+}
+
+#status{
+margin-top:15px;
+font-weight:500;
+}
+
+/* ===== SCROLL BAR ===== */
+#scrollIndicator{
+position:fixed;
+top:0;
+left:0;
+height:5px;
+background:#38bdf8;
+width:0%;
+z-index:2000;
+}
+</style>
+</head>
+
+<body>
+
+<div id="scrollIndicator"></div>
+
+<nav>
+<h2>TANUJA</h2>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Tanuja</h1>
+<h2 class="typing">Cloud & DevOps Engineer</h2>
+<p style="margin-top:20px;opacity:0.85;">
+Building scalable cloud systems, automating infrastructure,
+and deploying production-ready applications.
+</p>
+</div>
+</section>
+
+<section id="about" class="section">
+<h2>About Me</h2>
+<p>
+I focus on cloud-native architecture, CI/CD automation,
+containerization, and scalable infrastructure solutions.
+My goal is to design systems that are secure, reliable, and efficient.
+</p>
+</section>
+
+<section id="skills" class="section">
+<h2>Core Skills</h2>
+<div class="grid">
+<div class="card">Cloud Computing</div>
+<div class="card">DevOps & CI/CD</div>
+<div class="card">Docker & Containers</div>
+<div class="card">Infrastructure as Code</div>
+<div class="card">Linux & Networking</div>
+<div class="card">Automation & Scripting</div>
+</div>
+</section>
+
+<section id="projects" class="section">
+<h2>Projects</h2>
+<div class="grid">
+<div class="card">Scalable Web Application Deployment</div>
+<div class="card">CI/CD Pipeline Automation</div>
+<div class="card">Containerized Microservices Architecture</div>
+</div>
+</section>
+
+<section id="contact" class="section">
+<h2>Contact</h2>
+
+<form id="contactForm">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<textarea rows="5" id="message" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+
+<div id="status"></div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+/* ===== SUPABASE CONFIG ===== */
+const supabaseUrl=" ";
+const supabaseKey=" ";
+const supabase=window.supabase.createClient(supabaseUrl,supabaseKey);
+
+const form=document.getElementById("contactForm");
+const status=document.getElementById("status");
+
+form.addEventListener("submit",async(e)=>{
+e.preventDefault();
+
+const name=document.getElementById("name").value.trim();
+const email=document.getElementById("email").value.trim();
+const message=document.getElementById("message").value.trim();
+
+status.textContent="Sending...";
+status.style.color="#38bdf8";
+
+const {error}=await supabase
+.from("feedback")
+.insert([{name,email,message}]);
+
+if(error){
+status.textContent="Error: "+error.message;
+status.style.color="red";
+}else{
+status.textContent="Message sent successfully!";
+status.style.color="#00ffcc";
+form.reset();
+}
+});
+
+/* Scroll Indicator */
+window.addEventListener("scroll",()=>{
+const scrollIndicator=document.getElementById("scrollIndicator");
+const docHeight=document.body.scrollHeight-window.innerHeight;
+scrollIndicator.style.width=(window.scrollY/docHeight*100)+"%";
+});
+
+/* Reveal Animation */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:0.2});
+
+document.querySelectorAll(".section").forEach(section=>{
+observer.observe(section);
+});
+
+});
+</script>
+
+</body>
+</html>
